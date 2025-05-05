@@ -1,0 +1,126 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .payment-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2a4a7b; 
+    margin-bottom: 32px;
+  }
+  
+  .payment-option {
+    margin-bottom: 16px;
+    width: 300px;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #2a4a7b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #3a7a42;
+    font-weight: 500;
+    background-color: white;
+    transition: border 0.3s ease;
+  }
+  
+  .radio-label:hover {
+    border-color: #1e3365;
+  }
+  
+  .radio-label input[type='radio'] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #2a4a7b;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    padding: 0;
+  }
+  
+  .radio-label input[type='radio']::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #2a4a7b;
+    border-radius: 50%;
+    display: none;
+  }
+  
+  .radio-label input[type='radio']:checked::before {
+    display: block;
+  }
+  
+  .radio-label.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  
+  .submit-button {
+    background-color: #2a4a7b;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #1e365b;
+  }
+
+  .loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ffffff;
+    border-top: 3px solid #2a4a7b;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .info-message {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #2a4a7b;
+    font-weight: 500;
+  }
+  

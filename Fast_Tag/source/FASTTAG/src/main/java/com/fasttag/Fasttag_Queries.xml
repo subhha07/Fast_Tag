@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<sqls>
+    <sql name="created.fasttag.config.table"> <![CDATA[
+		create table IF NOT EXISTS
+			${FASTTAG_USER_CONFIG}
+			(
+                FASTTAG_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                VEHICLE_NO VARCHAR(15) UNIQUE NOT NULL,
+                OWNER_NAME VARCHAR(100) NOT NULL,
+                VEHICLE_TYPE VARCHAR(20) NOT NULL,
+                LAST_ENTRY_TIME BIGINT
+            )
+	]]>
+    </sql>
+</sqls>

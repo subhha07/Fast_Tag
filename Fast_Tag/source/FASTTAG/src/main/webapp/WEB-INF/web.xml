@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+   	</welcome-file-list>
+    <servlet>
+	    <servlet-name>RegisterUser</servlet-name>
+	    <servlet-class>com.fasttag.FastTagRegistrationServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>RegisterUser</servlet-name>
+	    <url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>IsRegisteredUserServlet</servlet-name>
+	    <servlet-class>com.fasttag.IsRegisteredUserServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>IsRegisteredUserServlet</servlet-name>
+	    <url-pattern>/fasttag</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>CompletePaymentServlet</servlet-name>
+	    <servlet-class>com.fasttag.CompletePaymentServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>CompletePaymentServlet</servlet-name>
+	    <url-pattern>/pay</url-pattern>
+	</servlet-mapping>
+
+</web-app>

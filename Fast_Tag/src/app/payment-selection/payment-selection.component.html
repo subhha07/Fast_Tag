@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+    <div class="payment-container">
+      <h2 class="payment-title">Select Payment type,</h2>
+  
+      <div class="payment-option" *ngFor="let option of paymentOptions">
+        <label [for]="option.value" class="radio-label" >
+          <span class="label-text">{{ option.label }}</span>
+          <input
+            type="radio"
+            [id]="option.value"
+            formControlName="paymentType"
+            [value]="option.value"
+          />
+        </label>
+      </div>    
+
+      <div class="submit-container">
+        <button type="submit" class="submit-button" [disabled]="isLoading" (click)="updateLogAndRedirect()">
+          <ng-container *ngIf="!isLoading; else loadingTemplate">Complete Payment</ng-container>
+        </button>
+      </div>
+  
+      <ng-template #loadingTemplate>
+        <span class="loader"></span>
+      </ng-template>
+  
+      <div class="info-message" *ngIf="infoMessage">
+        {{ infoMessage }}
+      </div>
+      
+    </div>
+  </form>
+  

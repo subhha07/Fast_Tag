@@ -1,0 +1,30 @@
+<form [formGroup]="fastTagService.isRegisteredFormGroup" (ngSubmit)="go()">
+  <div class="form">
+    <div class="content-wrapper">
+      <h1 class="welcome-title">Welcome to Fast tag,</h1>
+      <div class="form-group">
+        <label for="vehicleNumber">Vehicle number</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="vehicleNumber"
+            formControlName="vehicleNumber"
+            class="form-control"
+            [ngClass]="{'red-outline': !isRegisteredUser}"
+            placeholder="">
+          <button
+            *ngIf="!submitted && isRegisteredUser" 
+            type="submit"
+            class="go-button">
+            Go
+          </button>
+        </div>
+        <div *ngIf="submitted && !isRegisteredUser" class="registration-status not-registered">Vehicle is not registered</div>
+      </div>
+      <div *ngIf="submitted && !isRegisteredUser" class="button-container">
+        <button type="button" class="register-button" (click)="registerVehicle()">Register Vehicle</button>
+        <button type="button" class="exit-button" (click)="exit()">Exit</button>
+      </div>
+    </div>
+  </div>
+</form>

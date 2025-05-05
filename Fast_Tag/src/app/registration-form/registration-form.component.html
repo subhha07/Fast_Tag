@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+    <div class="form">
+      <div class="content-wrapper">
+        <h1 class="welcome-title">Welcome to Fast tag,</h1>
+  
+        <div class="form-group" *ngIf="fastTagService.readonlyMode; else editableForm">
+          <p>Vehicle number : <span class="green-text">{{ form.get('vehicleNumber')?.value }}</span></p>
+          <p>Vehicle type : <span class="green-text">{{ form.get('vehicleType')?.value }}</span></p>
+          <p>Owner Name :  <span class="green-text">{{ form.get('ownerName')?.value }}</span></p>
+        </div>
+  
+        <ng-template #editableForm>
+          <div class="form-group">
+            <label for="vehicleNumber">Vehicle number</label>
+            <div class="input-group">
+              <input type="text" formControlName="vehicleNumber" class="form-control" placeholder="" />
+            </div>
+  
+            <label for="ownerName" class="m15">Owner name</label>
+            <div class="input-group">
+              <input type="text" formControlName="ownerName" class="form-control" placeholder="" />
+            </div>
+  
+            <label for="vehicleType" class="m15">Vehicle type</label>
+            <select formControlName="vehicleType" class="form-control">
+                <option value="">-- Select Vehicle Type --</option>
+                <option *ngFor="let type of vehicleTypes" [value]="type">{{ type }}</option>
+            </select>
+              
+          </div>
+        </ng-template>
+  
+        <div class="button-container">
+            <button type="button" class="register-button" (click)="onProceedToPayment()">{{ fastTagService.readonlyMode ? 'Proceed to payment' : 'Register and proceed to payment' }}</button>
+        </div>
+    
+        <p *ngIf="form.get('totalAmount')?.value !== '' && form.get('totalAmount')?.value != null" class="toll-info">
+            Current toll fare {{ form.get('totalAmount')?.value }}
+        </p>
+
+        <p *ngIf="!fastTagService.readonlyMode && form.get('vehicleType')?.value" class="toll-info">
+            Current toll fare {{ FARE_MAP[form.get('vehicleType')?.value] }} + {{ REGISTRATION_FEE }} registration fee
+        </p>
+
+      </div>
+    </div>
+  </form>
+  
